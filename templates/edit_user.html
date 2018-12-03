@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit User</h2>
+<form action="/users/{{ user.id }}/edit" method="POST">
+  <p>First Name:     <input name="first_name"></p>
+  <p>Last Name:  <input name="last_name"></p>
+  <p>Image URL:   <input name="image_url"></p>
+  <button>Save</button>
+  <!-- on click, view fucntion Patch requst
+    to update user info in db, redirect to user details
+  -->
+  <button>Cancel</button>
+  <!-- redirect to user details -->
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+
+<img src="{{ user.image_url }}" alt="user image">
+<form action="/users/{{ user.id }}/edit" method="GET">
+  <button>Edit</button>
+  <!-- on click of edit button, view function to render edit user details template -->
+</form>
+<form action="/users/{{ user.id }}/delete" method="POST">
+    <button>Delete</button>
+    <!-- delete user from db, redirect to list users -->
+  </form>
+{% endblock %}
