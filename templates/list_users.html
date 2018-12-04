@@ -4,7 +4,7 @@
 <h1>Users</h1>
 <ul>
   {% for user in users %}
-  <li><a href="/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a></li>
+  <li><a href="/users/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a></li>
   <!-- on user id click, view function to render user details template -->
   {% endfor %}
 </ul>

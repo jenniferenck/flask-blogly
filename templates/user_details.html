@@ -11,5 +11,22 @@
 <form action="/users/{{ user.id }}/delete" method="POST">
     <button>Delete</button>
     <!-- delete user from db, redirect to list users -->
-  </form>
+</form>
+
+<h2>Posts</h2>
+
+<ul>
+    {% for post in user.posts %}
+    <li><a href="/users/{{ user.id }}/posts/{{ post.id }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+</ul>
+
+<!-- trigger get form for adding a new post -->
+<form action="/users/{{ user.id }}/posts/new" method="GET">
+  <button>Add Post</button>
+</form>
+
+
+
 {% endblock %}
