@@ -43,20 +43,28 @@ class Post(db.Model):
     user = db.relationship('User', backref='posts')
 
 
-class Tag(db.Model):
-    """Tag"""
-
-    __tablename__ = "tags"
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(30), nullable=False, unique=True)
-
-
 class PostTag(db.Model):
-    """Join table from posts to tags"""
+    """Join table for tag on a post"""
 
     __tablename__ = "post_tags"
 
     post_id = db.Column(
         db.Integer, db.ForeignKey('posts.id'), primary_key=True)
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
+
+
+class Tag(db.Model):
+    """Tag that can be added to posts"""
+
+    __tablename__ = "tags"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(30), nullable=False, unique=True)
+
+    posts = db.relationship('Post', secondary="post_tags", backref="tags")
+
+    def __repr__(self):
+        """Show info about user in a nice packaged way, rather than just <User><User>"""
+
+        t = self
+        return f"<Tser {t.id} {t.name}>"

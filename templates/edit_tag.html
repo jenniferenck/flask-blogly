@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h2>Edit a Tag</h2>
+{% endblock %}
+
+{% block content %}
+
+<form action="/tags/{{ tag.id }}/edit" method="POST">
+  <p>Name:     <input name="name" value="{{ tag.name }}" ></p>
+  
+  <button>Save</button>
+
+  <!-- redirect to user details -->
+  <a href="/tags"><button>Cancel</button></a>
+  
+</form>
+{% endblock %}

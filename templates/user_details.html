@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block header %}
 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+{% endblock %}
+
+{% block content %}
 
 <img src="{{ user.image_url }}" alt="user image">
 <form action="/users/{{ user.id }}/edit" method="GET">

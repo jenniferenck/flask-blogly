@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Blogly Recent Posts</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+  {% for post in posts %}
+
+  <h2> {{ post.title }} </h2>
+  <h5> {{ post.content }} </h5>
+  <p><i>By {{ post.user.first_name }} {{ post.user.last_name }}</i>on DATE</p>
+
+  {% endfor %}
+</ul>
+
+<!-- on click, render users page -->
+<form action="/users"method="GET">
+  <button>Users</button>
+</form>
+
+{% endblock %}s

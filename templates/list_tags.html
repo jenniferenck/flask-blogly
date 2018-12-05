@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h2>Tags</h2>
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for tag in tags %}
+    <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a>
+      </li>
+    {% endfor %}
+</ul>
+
+<!-- trigger get form for adding a new post -->
+<form action="/tags/new" method="GET">
+  <button>Add Tag</button>
+</form>
+
+<form action="/users" method="GET">
+  <button>Back to Users</button>
+</form>
+
+{% endblock %}

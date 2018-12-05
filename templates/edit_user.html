@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
+{% block header %}
+<h2>Edit User</h2>
+{% endblock %}
+
 {% block content %}
 
-<h2>Edit User</h2>
 <form action="/users/{{ user.id }}/edit" method="POST">
   <p>First Name:     <input name="first_name" value="{{ user.first_name }}" ></p>
   <p>Last Name:  <input name="last_name" value="{{ user.last_name }}"></p>
